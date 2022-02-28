@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="Failed suite [Default suite]">
+  <test parallel="none" name="Default test(failed)">
+    <classes>
+      <class name="Admin.User_Management">
+        <methods>
+          <include name="DSCL_Admin_UserManagement_64"/>
+          <include name="openBrowser"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- Admin.User_Management -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
