@@ -6,16 +6,14 @@
   </listeners>
   <test parallel="none" name="Test(failed)">
     <classes>
-      <class name="Dept_City_GIS_Page.City_GIS_1">
+      <class name="Admin.delete">
         <methods>
-          <include name="openBrowser"/>
-          <include name="afterClass"/>
-          <include name="DSCL_Dept_CityGIS_20"/>
-          <include name="DSCL_Dept_CityGIS_21"/>
-          <include name="DSCL_Dept_CityGIS_02"/>
-          <include name="DSCL_Dept_CityGIS_05"/>
+          <include name="PV_LayerManagement_37" invocation-numbers="0"/>
+          <include name="Openurl"/>
+          <include name="setDriver"/>
+          <include name="Aftermethod"/>
         </methods>
-      </class> <!-- Dept_City_GIS_Page.City_GIS_1 -->
+      </class> <!-- Admin.delete -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

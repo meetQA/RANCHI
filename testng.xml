@@ -4,7 +4,50 @@
 <listeners><listener class-name="Listener.TestListener"/></listeners>
   <test thread-count="5" name="Test">
     <classes>
-       <class name="Application_Pages.Home_Page"> 
+     <class name="Admin.delete" >
+     <methods>
+     <include name= "PV_LayerManagement_01()" />
+     <include name= "PV_LayerManagement_02()" />
+     <include name= "PV_LayerManagement_03()" />
+     <include name= "PV_LayerManagement_04()" />
+     <include name= "PV_LayerManagement_05()" />
+     <include name= "PV_LayerManagement_06()" />
+     <include name= "PV_LayerManagement_07()" />
+     <include name= "PV_LayerManagement_08()" />
+     <include name= "PV_LayerManagement_09()" />
+     <include name= "PV_LayerManagement_10()" />
+     <include name= "PV_LayerManagement_11()" />
+     <include name= "PV_LayerManagement_12()" />
+     <include name= "PV_LayerManagement_13()" />
+     <include name= "PV_LayerManagement_14()" />
+     <include name= "PV_LayerManagement_15()" />
+     <include name= "PV_LayerManagement_16()" />
+     <include name= "PV_LayerManagement_17()" />
+     <include name= "PV_LayerManagement_18()" />
+     <include name= "PV_LayerManagement_19()" />
+     <include name= "PV_LayerManagement_20()" />
+     <include name= "PV_LayerManagement_21()" />
+     <include name= "PV_LayerManagement_22()" />
+     <include name= "PV_LayerManagement_23()" />
+     <include name= "PV_LayerManagement_24()" />
+     <include name= "PV_LayerManagement_25()" />
+     <include name= "PV_LayerManagement_26()" />
+     <include name= "PV_LayerManagement_27()" />
+     <include name= "PV_LayerManagement_28()" />
+     <include name= "PV_LayerManagement_29()" />
+     <include name= "PV_LayerManagement_30()" />
+     <include name= "PV_LayerManagement_31()" />
+     <include name= "PV_LayerManagement_32()" />
+     <include name= "PV_LayerManagement_33()" />
+     <include name= "PV_LayerManagement_34()" />
+     <include name= "PV_LayerManagement_35()" />
+     <include name= "PV_LayerManagement_36()" />
+     <include name= "PV_LayerManagement_37()" />
+     </methods>
+     
+     </class>
+    
+      <!--  <class name="Application_Pages.Home_Page"> 
      <methods>
        <include name="DSCL_HOME_01" />
        <include name="DSCL_HOME_02" />
@@ -219,7 +262,7 @@
        <include name="DSCL_CityGIS_86" />
        </methods>
         </class> 
-      <class name="Dept_City_GIS_Page.City_GIS_1"></class>  
+      <class name="Dept_City_GIS_Page.City_GIS_1"></class>   -->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
