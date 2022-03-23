@@ -1594,27 +1594,27 @@ public class City_GIS {
   @Test(priority=74, description="To verify that user is able to get Emergency Services.")
   public void DSCL_CityGIS_74() throws InterruptedException, AWTException {
 	  
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Click on CITY GIS button from the menu bar.");
+	 // ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Click on CITY GIS button from the menu bar.");
 	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
 	  Thread.sleep(6000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Click on Dashboard.");
+	//  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Click on Dashboard.");
 	  driver.findElement(By.xpath(City_GIS_R.btn_Dashboard)).click();
 	  Thread.sleep(4000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Select Around Me option from the Dashboard.");
+	//  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Select Around Me option from the Dashboard.");
 	  driver.findElement(By.xpath(City_GIS_R.ddm_Around_Me)).click();
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on Emergency Services option.");
+	//  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on Emergency Services option.");
 	  driver.findElement(By.xpath(City_GIS_R.btn_Emergency_services)).click();
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Ok button.");
+	//  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Ok button.");
 	  driver.findElement(By.xpath(City_GIS_R.btn_Ok)).click();
 	  Thread.sleep(4000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Set location on City GIS map.");
+//	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Set location on City GIS map.");
 	  Robot robot = new Robot();
 	  robot.mouseMove(853,600);
 	  robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
 	  robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
 	  robot.delay(1500);
 	  Thread.sleep(4000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get Details Result pop-up for nearest emergency services.");
+	//  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get Details Result pop-up for nearest emergency services.");
 	  Assert.assertEquals(true, driver.findElement(By.xpath(City_GIS_R.label_Detailed_Result)).isDisplayed());
   }		  
   
