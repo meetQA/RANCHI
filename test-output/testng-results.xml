@@ -2,31 +2,31 @@
 <testng-results total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-03-03T05:05:17Z" name="Default suite" finished-at="2022-03-03T05:05:55Z" duration-ms="37512">
+  <suite started-at="2022-03-24T08:26:58Z" name="Default suite" finished-at="2022-03-24T08:27:55Z" duration-ms="57703">
     <groups>
     </groups>
-    <test started-at="2022-03-03T05:05:17Z" name="Default test" finished-at="2022-03-03T05:05:55Z" duration-ms="37512">
-      <class name="City_GIS_Map.City_GIS">
-        <test-method is-config="true" signature="openBrowser(org.testng.ITestContext)[pri:0, instance:City_GIS_Map.City_GIS@418c5a9c]" started-at="2022-03-03T10:35:17Z" name="openBrowser" finished-at="2022-03-03T10:35:27Z" duration-ms="9890" status="PASS">
+    <test started-at="2022-03-24T08:26:58Z" name="Default test" finished-at="2022-03-24T08:27:55Z" duration-ms="57703">
+      <class name="Dept_City_GIS_Page.City_GIS_1">
+        <test-method is-config="true" signature="openBrowser(org.testng.ITestContext)[pri:0, instance:Dept_City_GIS_Page.City_GIS_1@4e31276e]" started-at="2022-03-24T13:56:58Z" name="openBrowser" finished-at="2022-03-24T13:57:03Z" duration-ms="4934" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@34e20e6b]]>
+                <![CDATA[org.testng.TestRunner@5b4d25e7]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method signature="DSCL_CityGIS_74()[pri:0, instance:City_GIS_Map.City_GIS@418c5a9c]" started-at="2022-03-03T10:35:27Z" name="DSCL_CityGIS_74" description="To verify that user is able to get Emergency Services." finished-at="2022-03-03T10:35:54Z" duration-ms="26738" status="PASS">
+        <test-method signature="DSCL_Dept_CityGIS_15()[pri:0, instance:Dept_City_GIS_Page.City_GIS_1@4e31276e]" started-at="2022-03-24T13:57:03Z" name="DSCL_Dept_CityGIS_15" description="To verify that user is able to set spatial filter using selection area from the City GIS map." finished-at="2022-03-24T13:57:55Z" duration-ms="52001" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DSCL_CityGIS_74 -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:City_GIS_Map.City_GIS@418c5a9c]" started-at="2022-03-03T10:35:54Z" name="afterClass" finished-at="2022-03-03T10:35:55Z" duration-ms="871" status="PASS">
+        </test-method> <!-- DSCL_Dept_CityGIS_15 -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:Dept_City_GIS_Page.City_GIS_1@4e31276e]" started-at="2022-03-24T13:57:55Z" name="afterClass" finished-at="2022-03-24T13:57:55Z" duration-ms="762" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- City_GIS_Map.City_GIS -->
+      </class> <!-- Dept_City_GIS_Page.City_GIS_1 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -3,13 +3,13 @@
 <suite parallel="none" name="Failed suite [Default suite]">
   <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="Admin.User_Management">
+      <class name="Dept_City_GIS_Page.City_GIS_1">
         <methods>
-          <include name="DSCL_Admin_UserManagement_64"/>
+          <include name="DSCL_Dept_CityGIS_15"/>
           <include name="openBrowser"/>
           <include name="afterClass"/>
         </methods>
-      </class> <!-- Admin.User_Management -->
+      </class> <!-- Dept_City_GIS_Page.City_GIS_1 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
