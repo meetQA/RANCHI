@@ -32,128 +32,176 @@ public class Sign_Up_Page {
 		  driver.get(Home_Page_R.URL);
 	  }
  
-  @Test(priority=1, description="To verify that user is able to redirect on Registration page for Sign-Up.")
-  public void DSCL_SignUp_01() throws InterruptedException {
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Click on SIGN IN tab from the menu bar.");
+  @Test(priority=1, description="To verify that user is able to navigates on \"Register\" section.")
+  public void SGL_Ranchi_SignUp_1() throws InterruptedException {
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on SIGN IN tab from the menu bar.");
 	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Click on Sign Up button.");
-	  driver.findElement(By.xpath(Sign_Up_Page_R.btn_Sign_Up)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on \"CREATE AN ACCOUNT\" button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Register)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should redirect on \"Registration\" page/window pop-up. ");
-	  Assert.assertEquals(true, driver.findElement(By.xpath(Sign_Up_Page_R.Label_Register)).isDisplayed());
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should navigates on \"Register\" section.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//h2[text()=\"Register\"]")).isDisplayed());
   }
   
-  @Test(priority=2, description="To verify that user is able to Sign-Up in DSCL application using valid details.")
-  public void DSCL_SignUp_02() throws InterruptedException {
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Click on SIGN IN tab from the menu bar.");
+  @Test(priority=2, description="To verify that user is able to perform \"CREATE AN ACCOUNT\" functionality in Ranchi application.")
+  public void SGL_Ranchi_SignUp_2() throws InterruptedException {
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on SIGN IN tab from the menu bar.");
 	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Click on Sign Up button.");
-	  driver.findElement(By.xpath(Sign_Up_Page_R.btn_Sign_Up)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on \"CREATE AN ACCOUNT\" button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Register)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Enter valid \"First Name\" into First Name textbox.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Enter valid \"First Name\" into First Name textbox.");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_First_Name)).sendKeys("Meet");
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid \"Last Name\" into Last Name textbox.");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Enter valid \"Last Name\" into Last Name textbox.");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_Last_Name)).sendKeys("Gondaliya");
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Enter valid \"User Name\" into User Name textbox.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Enter valid \"User Name\" into User Name textbox.");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_User_Name)).sendKeys("Meet_Gondaliya");
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Enter valid \"Mobile No.\" into Mobile No. textbox.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Enter valid \"Mobile No.\" into Mobile No. textbox.");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_Mobile_No)).sendKeys("9023328797");
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Enter valid \"Email-Id\" into Email textbox.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Enter valid \"Email-Id\" into Email textbox.");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_Email)).sendKeys("meet.g@sgligis.com");
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b>  Checked on \"I Agree to the Terms and Conditions\".");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10:</b>  Checked on \"I Agree to the Terms and Conditions\".");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.chk_Term_Con)).click();
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Click on Sign Up button.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11:</b> Click on Sign Up button.");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.btn_Sign_Up_2)).click();
 	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get successful message for the Registration and redirecting to Sign In Page.");
 	  Assert.assertEquals(true, driver.findElement(By.xpath(Sign_Up_Page_R.Label_Success_Register)).isDisplayed());
   }
   
-  @Test(priority=3, description="To verify that user is able to redirect on Sign-In page.")
-  public void DSCL_SignUp_06() throws InterruptedException {
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Click on SIGN IN tab from the menu bar.");
+  @Test(priority=4, description="To verify that user is able to \"Close\" Register section.")
+  public void SGL_Ranchi_SignUp_4() throws InterruptedException {
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on SIGN IN tab from the menu bar.");
 	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Click on Sign Up button.");
-	  driver.findElement(By.xpath(Sign_Up_Page_R.btn_Sign_Up)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on \"CREATE AN ACCOUNT\" button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Register)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on link of Sign In from the Sign-Up Page.");
-	  driver.findElement(By.xpath(Sign_Up_Page_R.lnk_Sign_In)).click();
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should redirect on \"Sign In\" page/window pop-up.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Close\" button.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.btn_Close)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> \"Register\" section should close.");
 	  Assert.assertEquals(true, driver.findElement(By.xpath(Home_Page_R.label_Sign_In)).isDisplayed());
   }
   
-  @Test(priority=4, description="To verify that user get \"Terms & Conditions\" page.")
-  public void DSCL_SignUp_07() throws InterruptedException {
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Click on SIGN IN tab from the menu bar.");
+  @Test(priority=5, description="To verify that user is not able to create new user in Ranchi application with blank details.")
+  public void SGL_Ranchi_SignUp_5() throws InterruptedException {
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on SIGN IN tab from the menu bar.");
 	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Click on Sign Up button.");
-	  driver.findElement(By.xpath(Sign_Up_Page_R.btn_Sign_Up)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on \"CREATE AN ACCOUNT\" button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Register)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"Terms & Conditions\" link button.");
-	  driver.findElement(By.xpath(Sign_Up_Page_R.lnk_Term_Cond)).click();
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get \"Terms & Conditions\" related window popup.");
-	  Assert.assertEquals(true, driver.findElement(By.xpath(Sign_Up_Page_R.Label_Term_Cond)).isDisplayed());
-  }
-  
-  @Test(priority=5, description="To verify that user is not able to Sign-Up in DSCL application with blank details.")
-  public void DSCL_SignUp_08() throws InterruptedException {
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Click on SIGN IN tab from the menu bar.");
-	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
-	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Click on Sign Up button.");
-	  driver.findElement(By.xpath(Sign_Up_Page_R.btn_Sign_Up)).click();
-	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on Sign-Up button.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Sign-Up button.");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.btn_Sign_Up_2)).click();
 	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get validation message regarding blank First Name, Last Name, User Name, Mobile No., Password, Confirm Password, Email, Captcha, and using agree on Terms and Conditions.");
-	  Assert.assertEquals(true, driver.findElement(By.xpath(Sign_Up_Page_R.validation_message)).isDisplayed());
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span[text()=\"Please Enter First Name\"]")).isDisplayed());
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span[text()=\"Please Enter Last Name\"]")).isDisplayed());
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span[text()=\"Please Enter Username\"]")).isDisplayed());
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span[text()=\"Please Enter Email Address\"]")).isDisplayed());
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span[text()=\"Please Enter Mobile No.\"]")).isDisplayed());
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span[text()=\"Please Enter Captcha Code\"]")).isDisplayed());
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span[text()=\"Please check I agree terms and condition\"]")).isDisplayed());
+	  
   }
   
-  @Test(priority=17, description="To verify that user is not able to Sign-Up in DSCL application with invalid Captcha and valid First Name, Last Name, User Name, Mobile No., Password, Confirm Password, and Email.")
-  public void DSCL_SignUp_17() throws InterruptedException {
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Click on SIGN IN tab from the menu bar.");
+  @Test(priority=6, description="To verify that user is not able to create new user in Ranchi application with invalid Mobile No. and valid First Name, Last Name, User Name, Email Address, Captcha and checkbox.")
+  public void SGL_Ranchi_SignUp_6() throws InterruptedException {
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on SIGN IN tab from the menu bar.");
 	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Click on Sign Up button.");
-	  driver.findElement(By.xpath(Sign_Up_Page_R.btn_Sign_Up)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on \"CREATE AN ACCOUNT\" button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Register)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Enter valid \"First Name\" into First Name textbox.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Enter valid \"First Name\" into First Name textbox.");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_First_Name)).sendKeys("Meet");
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid \"Last Name\" into Last Name textbox.");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Enter valid \"Last Name\" into Last Name textbox.");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_Last_Name)).sendKeys("Gondaliya");
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Enter valid \"User Name\" into User Name textbox.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Enter valid \"User Name\" into User Name textbox.");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_User_Name)).sendKeys("Meet_Gondaliya");
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Enter valid \"Mobile No.\" into Mobile No. textbox.");
-	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_Mobile_No)).sendKeys("9023328797");
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Enter valid \"Email-Id\" into Email textbox.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Enter invalid \"Mobile No.\" into Mobile No. textbox.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_Mobile_No)).sendKeys("90233297");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Enter valid \"Email-Id\" into Email textbox.");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_Email)).sendKeys("meet.g@sgligis.com");
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Enter invalid Captcha in Captcha textbox.");
-	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_captcha)).sendKeys("meet.g@sgligis.com");
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b>  Checked on \"I Agree to the Terms and Conditions\".");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10:</b>  Checked on \"I Agree to the Terms and Conditions\".");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.chk_Term_Con)).click();
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10:</b> Click on Sign Up button.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11:</b> Click on Sign Up button.");
 	  driver.findElement(By.xpath(Sign_Up_Page_R.btn_Sign_Up_2)).click();
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get validation message like \"Please Enter valid Captcha\".");
-	  Assert.assertEquals(true, driver.findElement(By.xpath(Sign_Up_Page_R.validation_captcha)).isDisplayed());
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get validation message \"Please enter valid mobile number\".");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span[text()=\"Please enter valid mobile number\"]")).isDisplayed());
   }
   
-  @Test(priority=18, description="To verify that user is able to \"Close\" Sign-Up page/window pop-up.")
-  public void DSCL_SignUp_18() throws InterruptedException {
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Click on SIGN IN tab from the menu bar.");
+  @Test(priority=7, description="To verify that user is not able to create new user in Ranchi application with invalid Email and valid First Name, Last Name, User Name, Mobile No., Captcha and checkbox.")
+  public void SGL_Ranchi_SignUp_7() throws InterruptedException {
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on SIGN IN tab from the menu bar.");
 	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Click on Sign Up button.");
-	  driver.findElement(By.xpath(Sign_Up_Page_R.btn_Sign_Up)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on \"CREATE AN ACCOUNT\" button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Register)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"Close\" button.");
-	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Close)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Enter valid \"First Name\" into First Name textbox.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_First_Name)).sendKeys("Meet");
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should redirect on Home page of the DSCL page.");
-	  Assert.assertEquals(false, driver.findElement(By.xpath(Sign_Up_Page_R.Label_Register)).isDisplayed());
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Enter valid \"Last Name\" into Last Name textbox.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_Last_Name)).sendKeys("Gondaliya");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Enter valid \"User Name\" into User Name textbox.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_User_Name)).sendKeys("Meet_Gondaliya");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Enter valid \"Mobile No.\" into Mobile No. textbox.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_Mobile_No)).sendKeys("90233297");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Enter invalid \"Email-Id\" into Email textbox.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_Email)).sendKeys("meesgligis.com");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10:</b>  Checked on \"I Agree to the Terms and Conditions\".");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.chk_Term_Con)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11:</b> Click on Sign Up button.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.btn_Sign_Up_2)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get validation message like \"Please Enter valid email address\".");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span[text()=\"Please Enter valid email address\"]")).isDisplayed());
   }
+  
+  @Test(priority=8, description="To verify that user is not able to create new user in Ranchi application with invalid Captcha and valid First Name, Last Name, User Name, Mobile No., Email Address and checkbox.")
+  public void SGL_Ranchi_SignUp_8() throws InterruptedException {
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on SIGN IN tab from the menu bar.");
+	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on \"CREATE AN ACCOUNT\" button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Register)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Enter valid \"First Name\" into First Name textbox.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_First_Name)).sendKeys("Meet");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Enter valid \"Last Name\" into Last Name textbox.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_Last_Name)).sendKeys("Gondaliya");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Enter valid \"User Name\" into User Name textbox.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_User_Name)).sendKeys("Meet_Gondaliya");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Enter valid \"Mobile No.\" into Mobile No. textbox.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_Mobile_No)).sendKeys("9023328797");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Enter valid \"Email-Id\" into Email textbox.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.txt_Email)).sendKeys("mees@gligis.com");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10:</b>  Checked on \"I Agree to the Terms and Conditions\".");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.chk_Term_Con)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11:</b> Click on Sign Up button.");
+	  driver.findElement(By.xpath(Sign_Up_Page_R.btn_Sign_Up_2)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get validation message \"Please Enter valid Captcha Code.\"");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span[text()=\"Please Enter Captcha Code\"]")).isDisplayed());
+  }
+ 
   @AfterMethod
   public void afterClass() {
 	driver.quit();

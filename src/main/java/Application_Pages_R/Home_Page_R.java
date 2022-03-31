@@ -1,15 +1,20 @@
 package Application_Pages_R;
 
 public class Home_Page_R {
-	public static String URL = "https://sc1dehradun.sgligis.com//";
-	public static String img_1 = "//div[@class=\"swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active\"]";
-	public static String img_2 = "//div[@class=\"swiper-wrapper\"]/div[2]/div[@data-background=\"/Content/assets/images/gallery/4.jpg\"]";
-	public static String img_3 = "//div[@class=\"swiper-wrapper\"]/div[3]/div[@data-background=\"/Content/assets/images/gallery/5.jpg\"]";
-	public static String btn_Next_Slider = "//div[@class=\"next-btn\"]";
-	public static String btn_Previous_Slider = "//div[@class=\"prev-btn\"]";
-	public static String lnk_About_DSCL = "//a[text()=\"About DSCL\"]";
-	public static String label_About_DSCL = "//strong[text()=\"About Dehradun Smart City \"]";
+	public static String URL = "http://qaranchi.sgligis.com/";
+	public static String img_2 = "//h1[text()=\"Ranchi Smart City GIS Portal\"]";
+	public static String img_3 = "//h1[text()=\"Citylinking Smart thinking\"]";
+	public static String btn_Next_Slider = "//button[text()=\"Next\"]";
+	public static String btn_Previous_Slider = "//button[text()=\"Previous\"]";
+	public static String lnk_About_DSCL = "//a[text()=\"About\"]";
+	public static String lnk_How_it_works = "//a[text()=\"How it works\"]";
+	public static String lnk_Mission = "//a[text()=\"Mission\"]";
+	public static String lnk_Read_more = "//a[text()=\"Read more\"]";
+	public static String label_About_DSCL_01= "//div[@class=\"tab-pane fade show active\"]/p";
+	public static String label_About_DSCL = "//div[@class=\"tab-pane fade active show\"]/p";
 	public static String lnk_Sign_In = "//a[text()=\"Sign In\"]";
-	public static String label_Sign_In = "//h3[text()=\"Member Login\"]";
-	public static String btn_City_GIS = "//button[text()=\"City GIS\"]";
+	public static String lnk_Power_By = "//a[text()=\"Powered by IGiS\"]";
+	public static String label_Sign_In = "//h2[text()=\"Member Login\"]";
+	public static String btn_City_GIS = "//button[text()=\"City GiS\"]";
 }
+

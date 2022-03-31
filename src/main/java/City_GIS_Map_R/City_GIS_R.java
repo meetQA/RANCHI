@@ -1,7 +1,7 @@
 package City_GIS_Map_R;
 
 public class City_GIS_R {
-	public static String lnk_Logo = "//img[@title=\"Dehradun Smart City\"]";
+	public static String lnk_Logo = "//img[@title=\"Ranchi Smart City\"]";
 	public static String btn_Search = "//a[text()=\"Search\"]";
 	public static String txt_Search = "//input[@name=\"search\" and @id=\"navbar-search-input\"]";
 	public static String label_Search = "//h3[text()=\"Search Result\"]";
@@ -12,18 +12,29 @@ public class City_GIS_R {
 	public static String btn_Layers = "//a[@title=\"Layers\"]";
 	public static String Layer_Panel = "//aside[@data-intro=\"<strong>Layer Panel</strong>\"]";
 	public static String txt_Search_Layer = "//input[@placeholder=\"Search Layer...\"]";
-	public static String Layer_Dehradun_Basemap = "//span[text()=\"Dehradun Basemap\"]";
+	public static String Layer_Ranchi_Basemap = "//span[text()=\"Ranchi Basemap\"]";
 	public static String btn_ALl_Layer_Off = "//a[text()=\"All Layers Off\"]";
 	public static String btn_Legend = "//a[text()=\"Legend\"]";
+	public static String btn_Reset = "//a[text()=\"Reset\"]";
 	public static String label_Legend_pop = "//span[text()=\"Legend\"]";
+	public static String btn_Legend_Expand = "//div[@class=\"x-tool x-tool-toggle\"]";
+	public static String btn_Legend_Close = "//div[@class=\"x-tool x-tool-close\"]";
 	public static final String  btn_Get_Layer_information ="//span[text()=\"Get Layer information\"]";
+	public static final String  btn_Zoom_Layer_Extent ="//span[text()=\"Zoom to Layer Extent\"]";
 	public static final String  btn_ok_information ="//button[text()=\"OK\"]";
-	public static final String  label_information_window ="//span[text()='Info for Layer \"Dehradun Basemap\"']";
+	public static final String  label_information_window ="//span[text()='Info for Layer \"ranchi osm\"']";
 	public static final String  btn_close_information ="//div[@class=\"x-tool x-tool-close\"]";
 	public static final String  btn_Change_Layer_opacity ="//span[text()=\"Change Layer opacity\"]";
 	public static final String  btn_drag_Change_opacity ="//div[@class='x-window-body']//div/div[@class='x-slider-thumb']";
-	public static final String  layer_opacity ="//div[@id=\"OpenLayers_Layer_WMS_253\"]/img";
+	public static final String  layer_opacity ="//div[@id=\"OpenLayers_Layer_WMS_255\"]/img";
 	public static final String  btn_close ="//div[@class=\"x-tool x-tool-close\"]";
+	public static final String  btn_Add_Layer ="//button[@class=\" x-btn-text gxp-icon-addlayers\"]";
+	public static final String  btn_View_Available_data ="//tr/td[2]//input[@class=\"x-form-text x-form-field x-trigger-noedit\"]";
+	public static final String  btn_Add_New_Server ="//div[text()=\"Add a New Server...\"]";
+	public static final String  txt_url_ANS ="//form/div[2]//input[@class=\"x-form-text x-form-field\"]";
+	public static final String  txt_Search_Layer_AL ="//input[@name=\"txtSearch\"]";
+	public static final String  btn_Sort_alphabetically ="//button[text()=\"Sort alphabetically\"]";
+	public static final String  btn_Add_Server ="//button[text()=\"Add Server\"]";
 	public static final String  btn_Tools ="//a[text()=\"Tools\"]";
 	public static final String  btn_Identify ="//a[text()=\"Identify\"]";
 	public static final String  btn_Download ="//button[text()=\"Download\"]";
@@ -42,11 +53,11 @@ public class City_GIS_R {
     public static final String polyline="//*[name()=\"svg\"]/*[name()=\"g\"]/*[name()=\"g\"]/*[name()=\"polyline\"]";
     public static final String  btn_Area ="//a[text()=\"Area\"]";
     public static final String polygone="//*[name()=\"svg\"]/*[name()=\"g\"]/*[name()=\"g\"]/*[name()=\"path\"]";
-    public static final String  btn_Swipe ="//a[@title=\"Swipe Feature\"]";
-    public static final String  btn_Swipe_Layer ="//a[@title=\"Swipe by Layer\"]";
+    public static final String  btn_Swipe ="//a[@title=\"Swipe\"]";
+    public static final String  btn_Swipe_Layer ="//a[@title=\"By Layer\"]";
     public static final String btn_ok_swipe_popup="//button[text()=\"OK\"]";
     public static final String dialog_swipe_popup="//div[@id=\"ext-comp-1072\"]";
-    public static final String  btn_Swipe_Pointer ="//a[@title=\"Swipe by Pointer\"]";
+    public static final String  btn_Swipe_Pointer ="//a[@title=\"By Pointer\"]";
     public static final String  btn_Zoom_In ="//a[@title=\"Fixed Zoom In\"]";
     public static final String  btn_Zoom_out ="//a[@title=\"Fixed Zoom Out\"]";
     public static final String  btn_Bookmarks="//a[text()=\"Bookmarks\"]";
@@ -56,6 +67,10 @@ public class City_GIS_R {
     public static final String  btn_Cancel ="//button[text()=\"Cancel\"]";
     public static final String dialog_Bookmark="//div[@id=\"ext-comp-1063\"]";
     public static final String Remove_Bookmark="//div[@class=\"x-tool hr-bookmark-close-icon\"]";
+    public static final String btn_Send_Email="//div[@title=\"Send Email\"]";
+    public static final String txt_Email_id="//input[@id=\"ed_sendTO\"]";
+    public static final String txt_Email_Body="//input[@id=\"ed_body\"]";
+    public static final String btn_Send_Email_Pop="//button[text()=\"Send Mail\"]";
     public static final String  btn_Print ="//a[text()=\"Print\"]";
     public static final String  btn_print ="//button[@class=\" x-btn-text icon-print btn-print\"]";
     public static final String  btn_Help ="//a[@title=\"Help\"]";
@@ -70,7 +85,7 @@ public class City_GIS_R {
     public static final String  btn_Next ="//button[text()=\"Next \"]";
     public static final String  btn_Clear ="//button[text()=\"Clear \"]";
     public static final String  btn_Go_Landmark ="//button[text()=\"Go \"]";
-    public static final String label_Detailed_Result = "//h3[text()=\" Detailed Result\"]";
+    public static final String label_Detailed_Result = "//h3[text()=\"Detailed Result\"]";
     public static final String btn_expand_Detailed_Result = "//button[@class=\"accordion\"]";
     public static final String btn_collapse_Detailed_Result = "//button[@class=\"accordion active\"]";
     public static final String btn_Next_Detailed_Result ="//button[@data-backendlayer=\"landmark_Bank\"]";
@@ -88,10 +103,45 @@ public class City_GIS_R {
     public static final String btn_Close_Ward_Inf ="//button[@title=\"Close\"]";
     public static final String  ddm_Around_Me ="//a[text()=\"Around Me\"]";
     public static final String  btn_Emergency_services ="//a[@id=\"emergencyservices\"]";
+    public static final String  btn_Tourist_Attraction ="//a[@id=\"touristattraction\"]";
+    public static final String  btn_fun_entertainment ="//a[@id=\"funandentertainment\"]";
     public static final String  btn_Ok ="//button[text()=\"OK\"]";
-    public static final String btn_expand_Detailed_Result_WI = "//div[@id=\"landmark_Hospital\"]/button[@class=\"accordion\"]";
+    public static final String btn_expand_Detailed_Result_WI = "//div[@id=\"fire_station\"]/button[@class=\"accordion\"]";
+    public static final String btn_expand_Detailed_Result_TA = "//div[@id=\"landmark_Travel_Tourism\"]/button[@class=\"accordion\"]";
+    public static final String btn_expand_Detailed_Result_FAE = "//div[@id=\"landmark_Restaurant\"]/button[@class=\"accordion\"]";
     public static final String btn_collapse_Detailed_Result_WI = "//form[@id=\"frmnearbyquery\"]/div/div/button/i[@class=\"fa fa-minus\"]";
     public static final String btn_expand_Detailed_Result_WI1  = "//form[@id=\"frmnearbyquery\"]/div/div/button/i[@class=\"fa fa-plus\"]";
     public static final String btn_close_Detailed_Result_WI1 = "//form[@id=\"frmnearbyquery\"]/div/div/button[@id=\"btnClose\"]";
+    public static final String btn_back = "//button[@id=\"backToList\"]";
+    public static final String  ddm_Find_Direction ="//a[text()=\"Find Direction\"]";
+    
+    public static final String btn_Analytics = "//a[@title=\"Analytics\"]";
+	public static final String btn_Advance_Search = "//a[@title=\"Advance Search\"]";
+	public static final String btn_Bookmark_Queries = "//a[@title=\"Bookmark Queries\"]";
+	public static final String btn_Predefined_Queries = "//a[@title=\"Predefined Queries\"]";
+	public static final String txt_Adance_Query = "//textarea[@placeholder=\"Values\"]";
+	public static final String btn_Apply = "//button[text()=\"Apply\"]";
+	public static final String btn_Unblink = "//button[text()=\"Unblink\"]";
+	public static final String btn_Back = "//button[text()=\" Back\"]";
+	public static final String btn_Clear_Analytics = "//button[@id=\"btnquerybuilderclear\"]";
+	public static final String btn_Save = "//div[@aria-labelledby=\"tabsearch\"]/div/button[text()=\"Save\"]";
+	public static final String txt_Name = "//input[@placeholder=\"Enter Name\"]";
+	public static final String txt_Description = "//input[@placeholder=\"Enter Description\"]";
+	public static final String chk_qbispredefined = "//input[@id=\"chkqbispredefined\"]";
+	public static final String btn_Save_Query = "//form[@id=\"frmadvancequerysave\"]//div/button[text()=\"Save\"]";
+	public static final String btn_Verify = "//button[text()=\"Verify\"]";
+	public static final String btn_Load_Query = "//button[text()=\"Load  Query\"]";
+	public static final String btn_Load = "//button[text()=\"Load\"]";
+	public static final String btn_Collapse_LQ = "//div[@aria-describedby=\"modalLoadQuery\"]/div/button[text()=\"collapse\"]";
+	public static final String btn_Expand_LQ = "//div[@aria-describedby=\"modalLoadQuery\"]/div/button[text()=\"restore\"]";
+	public static final String btn_Close_LQ = "//div[@aria-describedby=\"modalLoadQuery\"]/div/button[text()=\"Close\"]";
+	public static final String btn_Spatial_Filter = "//button[text()=\"Spatial Filter\"]";
+	public static final String txt_Values = "//input[@class=\"select2-search__field\"]";
+	public static final String txt_Buffer = "//input[@placeholder=\"Enter Buffer Value\"]";
+	public static final String btn_Reset_Analytics = "//form[@id=\"frmspatialfilter\"]//button[text()=\"Reset\"]";
+	public static final String btn_Map_Extent = "//a[text()=\"Map Extent\"]";
+	public static final String btn_Select_From_Map = "//a[text()=\"Select from Map\"]";
+	
+	 public static final String btn_Image = "//a[text()=\"Image\"]";
 
 }

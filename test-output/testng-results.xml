@@ -2,31 +2,31 @@
 <testng-results total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-03-24T08:26:58Z" name="Default suite" finished-at="2022-03-24T08:27:55Z" duration-ms="57703">
+  <suite started-at="2022-03-31T12:18:20Z" name="Suite" finished-at="2022-03-31T12:18:37Z" duration-ms="16830">
     <groups>
     </groups>
-    <test started-at="2022-03-24T08:26:58Z" name="Default test" finished-at="2022-03-24T08:27:55Z" duration-ms="57703">
-      <class name="Dept_City_GIS_Page.City_GIS_1">
-        <test-method is-config="true" signature="openBrowser(org.testng.ITestContext)[pri:0, instance:Dept_City_GIS_Page.City_GIS_1@4e31276e]" started-at="2022-03-24T13:56:58Z" name="openBrowser" finished-at="2022-03-24T13:57:03Z" duration-ms="4934" status="PASS">
+    <test started-at="2022-03-31T12:18:20Z" name="Test" finished-at="2022-03-31T12:18:37Z" duration-ms="16830">
+      <class name="City_GIS_Map.City_GIS">
+        <test-method is-config="true" signature="openBrowser(org.testng.ITestContext)[pri:0, instance:City_GIS_Map.City_GIS@4397ad89]" started-at="2022-03-31T17:48:20Z" name="openBrowser" finished-at="2022-03-31T17:48:23Z" duration-ms="3026" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@5b4d25e7]]>
+                <![CDATA[org.testng.TestRunner@77eb5790]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method signature="DSCL_Dept_CityGIS_15()[pri:0, instance:Dept_City_GIS_Page.City_GIS_1@4e31276e]" started-at="2022-03-24T13:57:03Z" name="DSCL_Dept_CityGIS_15" description="To verify that user is able to set spatial filter using selection area from the City GIS map." finished-at="2022-03-24T13:57:55Z" duration-ms="52001" status="PASS">
+        <test-method signature="SGL_Ranchi_CITYGIS_148()[pri:0, instance:City_GIS_Map.City_GIS@4397ad89]" started-at="2022-03-31T17:48:23Z" name="SGL_Ranchi_CITYGIS_148" description="To verify user get &quot;Find Direction&quot; dialog from &quot;Find Direction&quot; functionality." finished-at="2022-03-31T17:48:36Z" duration-ms="12722" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DSCL_Dept_CityGIS_15 -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:Dept_City_GIS_Page.City_GIS_1@4e31276e]" started-at="2022-03-24T13:57:55Z" name="afterClass" finished-at="2022-03-24T13:57:55Z" duration-ms="762" status="PASS">
+        </test-method> <!-- SGL_Ranchi_CITYGIS_148 -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:City_GIS_Map.City_GIS@4397ad89]" started-at="2022-03-31T17:48:36Z" name="afterClass" finished-at="2022-03-31T17:48:37Z" duration-ms="801" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- Dept_City_GIS_Page.City_GIS_1 -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- City_GIS_Map.City_GIS -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
