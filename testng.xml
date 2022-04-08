@@ -12,9 +12,9 @@
       <class name="Application_Pages.Sign_Up_Page"/>
       <class name="Application_Pages.Forgot_Password_Page"/>  -->
    <class name="City_GIS_Map.City_GIS">
-   <methods>
+   <!-- <methods>
    <include name= "SGL_Ranchi_CITYGIS_148()" /> 
-   </methods>
+   </methods> -->
    </class>
    
     </classes>

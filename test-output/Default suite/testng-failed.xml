@@ -6,8 +6,8 @@
       <class name="City_GIS_Map.City_GIS">
         <methods>
           <include name="openBrowser"/>
-          <include name="SGL_Ranchi_CITYGIS_133"/>
           <include name="afterClass"/>
+          <include name="SGL_Ranchi_CITYGIS_149"/>
         </methods>
       </class> <!-- City_GIS_Map.City_GIS -->
     </classes>

@@ -113,7 +113,12 @@ public class City_GIS_R {
     public static final String btn_expand_Detailed_Result_WI1  = "//form[@id=\"frmnearbyquery\"]/div/div/button/i[@class=\"fa fa-plus\"]";
     public static final String btn_close_Detailed_Result_WI1 = "//form[@id=\"frmnearbyquery\"]/div/div/button[@id=\"btnClose\"]";
     public static final String btn_back = "//button[@id=\"backToList\"]";
-    public static final String  ddm_Find_Direction ="//a[text()=\"Find Direction\"]";
+    public static final String ddm_Find_Direction ="//a[text()=\"Find Direction\"]";
+    public static final String txt_Source_Location ="//input[@id=\"search_input_from\"]";
+    public static final String txt_Destination_Location ="//input[@id=\"search_input_to\"]";
+    public static final String btn_Direction ="//button[@id=\"networkGo\"]";
+    public static final String btn_Clear_FD ="//button[@id=\"networkClear\"]";
+    
     
     public static final String btn_Analytics = "//a[@title=\"Analytics\"]";
 	public static final String btn_Advance_Search = "//a[@title=\"Advance Search\"]";

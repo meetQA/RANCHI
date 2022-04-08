@@ -9,7 +9,50 @@
       <class name="City_GIS_Map.City_GIS">
         <methods>
           <include name="openBrowser"/>
-          <include name="SGL_Ranchi_CITYGIS_147"/>
+          <include name="SGL_Ranchi_CITYGIS_70"/>
+          <include name="SGL_Ranchi_CITYGIS_144"/>
+          <include name="SGL_Ranchi_CITYGIS_91"/>
+          <include name="SGL_Ranchi_CITYGIS_50"/>
+          <include name="SGL_Ranchi_CITYGIS_72"/>
+          <include name="SGL_Ranchi_CITYGIS_71"/>
+          <include name="SGL_Ranchi_CITYGIS_30"/>
+          <include name="SGL_Ranchi_CITYGIS_52"/>
+          <include name="SGL_Ranchi_CITYGIS_74"/>
+          <include name="SGL_Ranchi_CITYGIS_51"/>
+          <include name="SGL_Ranchi_CITYGIS_73" invocation-numbers="0"/>
+          <include name="SGL_Ranchi_CITYGIS_54"/>
+          <include name="SGL_Ranchi_CITYGIS_76"/>
+          <include name="SGL_Ranchi_CITYGIS_53"/>
+          <include name="SGL_Ranchi_CITYGIS_75"/>
+          <include name="SGL_Ranchi_CITYGIS_78"/>
+          <include name="SGL_Ranchi_CITYGIS_33"/>
+          <include name="SGL_Ranchi_CITYGIS_55"/>
+          <include name="SGL_Ranchi_CITYGIS_77"/>
+          <include name="SGL_Ranchi_CITYGIS_149"/>
+          <include name="SGL_Ranchi_CITYGIS_58"/>
+          <include name="SGL_Ranchi_CITYGIS_24"/>
+          <include name="SGL_Ranchi_CITYGIS_68"/>
+          <include name="SGL_Ranchi_CITYGIS_16" invocation-numbers="0"/>
+          <include name="SGL_Ranchi_CITYGIS_15" invocation-numbers="0"/>
+          <include name="SGL_Ranchi_CITYGIS_59"/>
+          <include name="SGL_Ranchi_CITYGIS_81"/>
+          <include name="SGL_Ranchi_CITYGIS_80"/>
+          <include name="SGL_Ranchi_CITYGIS_61" invocation-numbers="0"/>
+          <include name="SGL_Ranchi_CITYGIS_83"/>
+          <include name="SGL_Ranchi_CITYGIS_60"/>
+          <include name="SGL_Ranchi_CITYGIS_82"/>
+          <include name="SGL_Ranchi_CITYGIS_63"/>
+          <include name="SGL_Ranchi_CITYGIS_62"/>
+          <include name="SGL_Ranchi_CITYGIS_84"/>
+          <include name="SGL_Ranchi_CITYGIS_65"/>
+          <include name="SGL_Ranchi_CITYGIS_64"/>
+          <include name="SGL_Ranchi_CITYGIS_67"/>
+          <include name="SGL_Ranchi_CITYGIS_66"/>
+          <include name="SGL_Ranchi_CITYGIS_47"/>
+          <include name="SGL_Ranchi_CITYGIS_69"/>
+          <include name="SGL_Ranchi_CITYGIS_79"/>
+          <include name="SGL_Ranchi_CITYGIS_49"/>
+          <include name="SGL_Ranchi_CITYGIS_48"/>
           <include name="afterClass"/>
         </methods>
       </class> <!-- City_GIS_Map.City_GIS -->

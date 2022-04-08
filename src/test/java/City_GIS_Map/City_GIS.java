@@ -4264,11 +4264,26 @@ public class City_GIS {
 	  driver.findElement(By.xpath(City_GIS_R.ddm_Find_Direction)).click();
 	  Thread.sleep(2000);
 	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click in text box of \"Source Location\".");
-	  driver.findElement(By.xpath(City_GIS_R.ddm_Find_Direction)).click();
+	  driver.findElement(By.xpath(City_GIS_R.txt_Source_Location)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get dialog of \"Find Direction\".");
-	  Assert.assertEquals(true, driver.findElement(By.xpath("//span[text()=\"Find Direction\"]")).isDisplayed());
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on map or enter the landmark name in source location textbox to get the \"Source Location\".");
+	  driver.findElement(By.xpath(City_GIS_R.txt_Source_Location)).sendKeys("85.301166610431,23.313056416789");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Click in text box of \"Destination Location\".");
+	  driver.findElement(By.xpath(City_GIS_R.txt_Destination_Location)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Click on map or enter the landmark name in source location textbox to get the \"Source Location\".");
+	  driver.findElement(By.xpath(City_GIS_R.txt_Destination_Location)).sendKeys("85.376383438191,23.34896394763");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step10:</b> Click on \"Direction\" button.");
+	  JavascriptExecutor executor = (JavascriptExecutor)driver;
+	  executor.executeScript("arguments[0].click();",     driver.findElement(By.xpath(City_GIS_R.btn_Direction)));
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the direction as a shortest path between \"Source Location\" and \"Destination Location\" on map.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//div/div/div/img[@class=\"olAlphaImg\" and @src=\"/Commonwidget/ranchi_wd/images/redpin.png\"]")).isDisplayed());
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//div/div/div/img[@class=\"olAlphaImg\" and @src=\"/Commonwidget/ranchi_wd/images/bluepin.png\"]")).isDisplayed());
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//*[name()=\"svg\"]/*[name()=\"g\"]/*[name()=\"g\"]/*[name()=\"polyline\"]")).isDisplayed());
   }
+  
+  
   @AfterMethod
   public void afterClass() {
 	driver.quit();
