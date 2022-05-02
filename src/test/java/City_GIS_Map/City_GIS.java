@@ -5,6 +5,7 @@ import com.aventstack.extentreports.Status;
 
 import Admin_R.User_Management_R;
 import Application_Pages_R.Home_Page_R;
+import Application_Pages_R.Sign_In_Page_R;
 import City_GIS_Map_R.City_GIS_R;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.testng.annotations.BeforeMethod;
@@ -4205,7 +4206,7 @@ public class City_GIS {
 	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Click on close button..");
 	  driver.findElement(By.xpath(City_GIS_R.btn_Close_Ward_Inf)).click();
 	  Thread.sleep(2000);
-	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> Click on close button.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> \"Ward Information\" dialog should close.");
 	  Assert.assertEquals(false, driver.findElement(By.xpath(City_GIS_R.label_Ward_Information)).isDisplayed());
   }
   
@@ -4283,7 +4284,1137 @@ public class City_GIS {
 	  Assert.assertEquals(true, driver.findElement(By.xpath("//*[name()=\"svg\"]/*[name()=\"g\"]/*[name()=\"g\"]/*[name()=\"polyline\"]")).isDisplayed());
   }
   
+  @Test(priority=150, description="To verify that user is able to perform \"Find Direction\" functionality with using current location button.")
+  public void SGL_Ranchi_CITYGIS_150() throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Find Direction\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Find_Direction)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on current location button to get the \"Source Location\".");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Current_Location_FD)).click();
+	  Thread.sleep(2000);
+	  driver.findElement(By.xpath(City_GIS_R.btn_Ok)).click();
+	  Thread.sleep(4000);		 
+	  Robot robot = new Robot();
+	  robot.mouseMove(853,600);
+	  robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+	  robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+	  robot.delay(1500);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click in text box of \"Destination Location\".");
+	  driver.findElement(By.xpath(City_GIS_R.txt_Destination_Location)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Click on map or enter the landmark name in source location textbox to get the \"Source Location\".");
+	  driver.findElement(By.xpath(City_GIS_R.txt_Destination_Location)).sendKeys("85.376383438191,23.34896394763");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Click on \"Direction\" button.");
+	  JavascriptExecutor executor = (JavascriptExecutor)driver;
+	  executor.executeScript("arguments[0].click();",     driver.findElement(By.xpath(City_GIS_R.btn_Direction)));
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the direction as a shortest path between \"Source Location\" and \"Destination Location\" on map.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//div/div/div/img[@class=\"olAlphaImg\" and @src=\"/Commonwidget/ranchi_wd/images/redpin.png\"]")).isDisplayed());
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//div/div/div/img[@class=\"olAlphaImg\" and @src=\"/Commonwidget/ranchi_wd/images/bluepin.png\"]")).isDisplayed());
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//*[name()=\"svg\"]/*[name()=\"g\"]/*[name()=\"g\"]/*[name()=\"polyline\"]")).isDisplayed());
+  }
   
+  @Test(priority=151, description="To verify collapse/expand functionalities of \"Find Direction\" dialog.")
+  public void SGL_Ranchi_CITYGIS_151(Method method) throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Find Direction\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Find_Direction)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on expand/collapse button.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_collapse_Ward_Inf)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> \"Find Direction\" dialog should collapse/expand as per selection.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath(City_GIS_R.btn_expand_Ward_Inf)).isDisplayed());
+	  objs.Screenshot(driver, Classname ,method.getName()+"_"+1 );
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on expand/collapse button.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_expand_Ward_Inf)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> \"Find Direction\" dialog should collapse/expand as per selection.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath(City_GIS_R.btn_collapse_Ward_Inf)).isDisplayed()); 
+  }
+  
+	/*
+	 * @Test(priority=152,
+	 * description="To verify clear functionality of \"Find Direction\" dialog.")
+	 * public void SGL_Ranchi_CITYGIS_152_1() throws
+	 * InterruptedException,AWTException {
+	 * ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	 * // ExtentTestManager.getTest().log(Status.INFO,
+	 * "<b>Step-2:</b> Enter URL of the Ranchi application in address bar."); //
+	 * ExtentTestManager.getTest().log(Status.INFO,
+	 * "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	 * driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	 * Thread.sleep(4000); ExtentTestManager.getTest().log(Status.INFO,
+	 * "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	 * driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	 * driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	 * Thread.sleep(4000); ExtentTestManager.getTest().log(Status.INFO,
+	 * "<b>Step-5:</b> Click on \"Find Direction\" functionality.");
+	 * driver.findElement(By.xpath(City_GIS_R.ddm_Find_Direction)).click();
+	 * Thread.sleep(2000); ExtentTestManager.getTest().log(Status.INFO,
+	 * "<b>Step-6:</b> Click on current location button to get the \"Source Location\"."
+	 * ); driver.findElement(By.xpath(City_GIS_R.btn_Current_Location_FD)).click();
+	 * Thread.sleep(2000); driver.findElement(By.xpath(City_GIS_R.btn_Ok)).click();
+	 * Thread.sleep(4000); Robot robot = new Robot(); robot.mouseMove(853,600);
+	 * robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+	 * robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK); robot.delay(1500); //
+	 * ExtentTestManager.getTest().log(Status.INFO,
+	 * "<b>Step-7:</b> Click on map or enter the landmark name in source location textbox to get the \"Source Location\"."
+	 * ); driver.findElement(By.xpath(City_GIS_R.txt_Source_Location)).sendKeys(
+	 * "85.301166610431,23.313056416789"); ExtentTestManager.getTest().log(Status.
+	 * INFO,"<b>Step-8:</b> Click in text box of \"Destination Location\".");
+	 * driver.findElement(By.xpath(City_GIS_R.txt_Destination_Location)).click();
+	 * Thread.sleep(2000); ExtentTestManager.getTest().log(Status.
+	 * INFO,"<b>Step-9:</b> Click on map or enter the landmark name in source location textbox to get the \"Source Location\"."
+	 * );
+	 * driver.findElement(By.xpath(City_GIS_R.txt_Destination_Location)).sendKeys(
+	 * "85.376383438191,23.34896394763"); //
+	 * ExtentTestManager.getTest().log(Status.INFO,
+	 * "<b>Step10:</b> Click on \"Clear\" button."); JavascriptExecutor executor
+	 * =(JavascriptExecutor)driver; executor.executeScript("arguments[0].click();",
+	 * driver.findElement(By.xpath(City_GIS_R.btn_Clear_FD))); Thread.sleep(2000);
+	 * ExtentTestManager.getTest().log(Status.INFO,
+	 * "<b>Result:</b> Values from the textboxes of \"Source Location\"  and \"Destination Location\" should be clear."
+	 * ); Assert.assertEquals("",driver.findElement(By.xpath(City_GIS_R.
+	 * txt_Destination_Location)).getText()); Assert.assertEquals("",
+	 * driver.findElement(By.xpath(City_GIS_R.txt_Destination_Location)).getText());
+	 * 
+	 * }
+	 */
+  
+  @Test(priority=152, description="To verify close functionality of \"Find Direction\" dialog.")
+  public void SGL_Ranchi_CITYGIS_152() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Find Direction\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Find_Direction)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on \"Close\" button.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Close_Ward_Inf)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> \"Find Direction\" dialog should close.");
+	  Assert.assertEquals(false, driver.findElement(By.xpath("//span[text()=\"Find Direction\"]")).isDisplayed());
+  }
+  
+  @Test(priority=153, description="To verify user is not able to perform \"Find Direction\" functionality without entering \"Source Location\" and \"Destination Location\".")
+  public void SGL_Ranchi_CITYGIS_153() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Find Direction\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Find_Direction)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on \"Direction\" button.");
+	  JavascriptExecutor executor = (JavascriptExecutor)driver;
+	  executor.executeScript("arguments[0].click();",     driver.findElement(By.xpath(City_GIS_R.btn_Direction)));
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get alert message like \"Please Enter Location From\".");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//p[text()=\"Please Enter Location From\"]")).isDisplayed());
+  }
+  
+  @Test(priority=154, description="To verify user is not able to perform \"Find Direction\" functionality without entering \"Destination Location\"..")
+  public void SGL_Ranchi_CITYGIS_154() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Find Direction\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Find_Direction)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click in text box of \"Source Location\".");
+	  driver.findElement(By.xpath(City_GIS_R.txt_Source_Location)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on map or enter the landmark name in source location textbox to get the \"Source Location\".");
+	  driver.findElement(By.xpath(City_GIS_R.txt_Source_Location)).sendKeys("85.301166610431,23.313056416789");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Click on \"Direction\" button.");
+	  JavascriptExecutor executor = (JavascriptExecutor)driver;
+	  executor.executeScript("arguments[0].click();",     driver.findElement(By.xpath(City_GIS_R.btn_Direction)));
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get alert message like \"Please Enter Location To\".");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//p[text()=\"Please Enter Location To\"]")).isDisplayed());
+  }
+  
+  @Test(priority=155, description="To verify user is not able to perform \"Find Direction\" functionality without entering \"Source Location\".")
+  public void SGL_Ranchi_CITYGIS_155() throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Find Direction\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Find_Direction)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click in text box of \"Destination Location\".");
+	  driver.findElement(By.xpath(City_GIS_R.txt_Destination_Location)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on map or enter the landmark name in source location textbox to get the \"Source Location\".");
+	  driver.findElement(By.xpath(City_GIS_R.txt_Destination_Location)).sendKeys("85.376383438191,23.34896394763");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Click on \"Direction\" button.");
+	  JavascriptExecutor executor = (JavascriptExecutor)driver;
+	  executor.executeScript("arguments[0].click();",     driver.findElement(By.xpath(City_GIS_R.btn_Direction)));
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get alert message like \"Please Enter Location From\".");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//p[text()=\"Please Enter Location From\"]")).isDisplayed());
+  }
+  
+  @Test(priority=156, description="To verify user get \"Send Map Email\" dialog from \"Send Map Through Email\".")
+  public void SGL_Ranchi_CITYGIS_156() throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Send Map Through Email\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Send_Map_Through_Email)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get dialog of \"Send Map Email\".");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span[text()=\"Send Map Email (Default Configuration)\"]")).isDisplayed());
+  }
+  
+  @Test(priority=157, description="To verify collapse/expand functionalities of \"Send Map Through Email\" dialog.")
+  public void SGL_Ranchi_CITYGIS_157(Method method) throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Send Map Through Email\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Send_Map_Through_Email)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on expand/collapse button.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_collapse_Ward_Inf)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> \"Send Map Through Email\" dialog should collapse/expand as per selection..");
+	  Assert.assertEquals(true, driver.findElement(By.xpath(City_GIS_R.btn_expand_Ward_Inf)).isDisplayed());
+	  objs.Screenshot(driver, Classname ,method.getName()+"_"+1 );
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on expand/collapse button.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_expand_Ward_Inf)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> \"Send Map Through Email\" dialog should collapse/expand as per selection.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath(City_GIS_R.btn_collapse_Ward_Inf)).isDisplayed()); 
+  }
+  
+  @Test(priority=158, description="To verify close functionality of \"Send Map Through Email\" dialog.")
+  public void SGL_Ranchi_CITYGIS_158() throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Send Map Through Email\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Send_Map_Through_Email)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on \"Close\" button.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Close_Ward_Inf)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> \"Find Direction\" dialog should close.");
+	  Assert.assertEquals(false, driver.findElement(By.xpath("//span[text()=\"Send Map Email (Default Configuration)\"]")).isDisplayed());
+  }
+  
+  @Test(priority=159, description="To verify that user is able to send Map through Email to valid Email id.")
+  public void SGL_Ranchi_CITYGIS_159() throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Send Map Through Email\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Send_Map_Through_Email)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Enter valid email id in email textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtEmailid\"]")).sendKeys("meet.g@sgligis.com");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Enter body in \"Email Body\" textbox.");
+	  driver.findElement(By.xpath("//textarea[@id=\"txtmessagebody\"]")).sendKeys("This is for automation testing.");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Click on \"Send\" button.");
+	  driver.findElement(By.xpath("//button[@onclick=\"SendMapEmail();\"]")).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> 1. User should get success message of send mail with map and body.\r\n"
+	  		+ "2. Entered email id account should get email with map and body.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//p[text()=\"Please Enter Location From\"]")).isDisplayed());
+  }
+  
+  @Test(priority=160, description="To verify that user is not able to send email without entering email id.")
+  public void SGL_Ranchi_CITYGIS_160() throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Send Map Through Email\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Send_Map_Through_Email)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on \"Send\" button.");
+	  driver.findElement(By.xpath("//button[@onclick=\"SendMapEmail();\"]")).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the validation message as \"Please enter valid Email ID\"..");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//p[text()=\"Please enter valid Email ID\"]")).isDisplayed());
+  }
+  
+  @Test(priority=161, description="To verify that user is not able to send email with entering invalid email id.")
+  public void SGL_Ranchi_CITYGIS_161() throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Send Map Through Email\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Send_Map_Through_Email)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Enter invalid email id in \"Email\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtEmailid\"]")).sendKeys("meetligis.com");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Enter body in \"Email Body\" textbox.");
+	  driver.findElement(By.xpath("//textarea[@id=\"txtmessagebody\"]")).sendKeys("This is for automation testing.");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Click on \"Send\" button.");
+	  driver.findElement(By.xpath("//button[@onclick=\"SendMapEmail();\"]")).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the validation message as \"Please enter valid Email ID\".");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//p[text()=\"Please enter valid Email ID\"]")).isDisplayed());
+  }
+  
+  @Test(priority=162, description="To verify that user is able to perform \"Statistical Information\" functionality for \"Pie Chart\" option.")
+  public void SGL_Ranchi_CITYGIS_162() throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Statistical Information\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Statistical_Information)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Select layer from the \"Layer\" dropdown.");
+	  Select dropdown = new Select(driver.findElement(By.xpath("//select[@id=\"ddlLayerChart\"]")));  
+	  dropdown.selectByValue("199"); 
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Select field from the \"Chart Category\" dropdown.");
+	  Select dropdown1 = new Select(driver.findElement(By.xpath("//select[@id=\"ddlLayerFieldChart\"]")));  
+	  dropdown1.selectByValue("school_type"); 
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Select \"Pie Chart\" radiobutton.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Click on \"Go\" button.");
+	  driver.findElement(By.xpath("//button[text()=\"Go \" and @onclick=\"ShowCustomizeChart();\"]")).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get Pie chart according selected layer and chart category with legends of chart.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//h3[text()=\"School Details\"]")).isDisplayed());
+  }
+  
+  @Test(priority=163, description="To verify that user is able to perform \"Statistical Information\" functionality for \"Bar Chart\" option.")
+  public void SGL_Ranchi_CITYGIS_163() throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Statistical Information\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Statistical_Information)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Select layer from the \"Layer\" dropdown.");
+	  Select dropdown = new Select(driver.findElement(By.xpath("//select[@id=\"ddlLayerChart\"]")));  
+	  dropdown.selectByValue("199"); 
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Select field from the \"Chart Category\" dropdown.");
+	  Select dropdown1 = new Select(driver.findElement(By.xpath("//select[@id=\"ddlLayerFieldChart\"]")));  
+	  dropdown1.selectByValue("school_type"); 
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Select \"Bar Chart\" radiobutton.");
+	  driver.findElement(By.xpath("//input[value=\"BarChart\"]")).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Click on \"Go\" button.");
+	  driver.findElement(By.xpath("//button[text()=\"Go \" and @onclick=\"ShowCustomizeChart();\"]")).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get Bar Chart according selected layer and chart category with legends of chart.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//h3[text()=\"school\"]")).isDisplayed());
+  }
+  
+  @Test(priority=164, description="To verify that user is able to perform collapse/expand functionality.")
+  public void SGL_Ranchi_CITYGIS_164(Method method) throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Statistical Information\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Statistical_Information)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Select layer from the \"Layer\" dropdown.");
+	  Select dropdown = new Select(driver.findElement(By.xpath("//select[@id=\"ddlLayerChart\"]")));  
+	  dropdown.selectByValue("199"); 
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Select field from the \"Chart Category\" dropdown.");
+	  Select dropdown1 = new Select(driver.findElement(By.xpath("//select[@id=\"ddlLayerFieldChart\"]")));  
+	  dropdown1.selectByValue("school_type"); 
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Select \"Bar Chart\" radiobutton.");
+	  driver.findElement(By.xpath("//input[@value=\"BarChart\"]")).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Click on \"Go\" button.");
+	  driver.findElement(By.xpath("//button[text()=\"Go \" and @onclick=\"ShowCustomizeChart();\"]")).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10:</b> Click on collapse / expand button.");
+	  driver.findElement(By.xpath("//form[@id=\"frmDynamicPieChart\"]/div/div/button/i[@class=\"fa fa-minus\"]")).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get \"Detailed Result\" dialog in collapse mode.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//form[@id=\"frmDynamicPieChart\"]/div/div/button/i[@class=\"fa fa-plus\"]")).isDisplayed());
+	  Thread.sleep(4000);
+	  objs.Screenshot(driver, Classname ,method.getName()+"_"+1 );
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11:</b> Click on collapse / expand button.");
+	  driver.findElement(By.xpath("//form[@id=\"frmDynamicPieChart\"]/div/div/button/i[@class=\"fa fa-plus\"]")).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get \"Detailed Result\" dialog in expand mode.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//form[@id=\"frmDynamicPieChart\"]/div/div/button/i[@class=\"fa fa-minus\"]")).isDisplayed());
+  }
+  
+  @Test(priority=165, description="To verify that user is able to perform close functionality.")
+  public void SGL_Ranchi_CITYGIS_165() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Statistical Information\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Statistical_Information)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Select layer from the \"Layer\" dropdown.");
+	  Select dropdown = new Select(driver.findElement(By.xpath("//select[@id=\"ddlLayerChart\"]")));  
+	  dropdown.selectByValue("199"); 
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Select field from the \"Chart Category\" dropdown.");
+	  Select dropdown1 = new Select(driver.findElement(By.xpath("//select[@id=\"ddlLayerFieldChart\"]")));  
+	  dropdown1.selectByValue("school_type"); 
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Select \"Bar Chart\" radiobutton.");
+	  driver.findElement(By.xpath("//input[@value=\"BarChart\"]")).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Click on \"Go\" button.");
+	  driver.findElement(By.xpath("//button[text()=\"Go \" and @onclick=\"ShowCustomizeChart();\"]")).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10:</b> Click on close button.");
+	  driver.findElement(By.xpath("//form[@id=\"frmDynamicPieChart\"]/div/div/button/i[@class=\"fa fa-times\"]")).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> Result dialog should be close.");
+	  Assert.assertEquals(false, driver.findElement(By.xpath("//h3[text()=\"school\"]")).isDisplayed());
+  }
+  
+  @Test(priority=166, description="To verify that user is not able to perform \"Statistical Information\" functionality without selecting layer for pie chart option.")
+  public void SGL_Ranchi_CITYGIS_166() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Statistical Information\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Statistical_Information)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on \"Go\" button.");
+	  driver.findElement(By.xpath("//button[text()=\"Go \" and @onclick=\"ShowCustomizeChart();\"]")).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the validation message as \"Please select Layer\".");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//p[text()=\"Please select Layer\"]")).isDisplayed());
+  }
+  
+  @Test(priority=167, description="To verify that user is not able to perform \"Statistical Information\" functionality without selecting layer for bar chart option.")
+  public void SGL_Ranchi_CITYGIS_167() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on expand/collapse icon of \"GIS INFOGRAPHICS\".");
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  driver.findElement(By.xpath("//a[@title=\"GiS Infographics\"]")).click();
+	  Thread.sleep(4000); 
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Statistical Information\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.ddm_Statistical_Information)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Select \"Bar Chart\" radiobutton.");
+	  driver.findElement(By.xpath("//input[@value=\"BarChart\"]")).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on \"Go\" button.");
+	  driver.findElement(By.xpath("//button[text()=\"Go \" and @onclick=\"ShowCustomizeChart();\"]")).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the validation message as \"Please select Layer\".");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//p[text()=\"Please select Layer\"]")).isDisplayed());
+  }
+  
+  @Test(priority=168, description="To verify that user is able to perform \"Home\" functionality from bottom panel.")
+  public void SGL_Ranchi_CITYGIS_168() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on the \"Fixed Zoom In\" (\"+\") button from the bottom panel.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_In)).click();
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_In)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> SSelect \"Home\" icon from the bottom panel.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Home)).click();
+	  Thread.sleep(2000);
+	  String a2 = driver.findElement(By.xpath("//div[@class=\"olControlScaleLineTop\"]")).getText();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> Map should be resets on default extent level.");
+	  Assert.assertEquals("5 km", a2);
+  }
+  
+  @Test(priority=169, description="To verify that user is able to perform \"Zoom Previous\" functionality from bottom panel.")
+  public void SGL_Ranchi_CITYGIS_169() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on the \"Fixed Zoom In\" (\"+\") button from the bottom panel.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_In)).click();
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_In)).click();
+	  Thread.sleep(4000);
+	  String a1 = driver.findElement(By.xpath("//div[@class=\"olControlScaleLineTop\"]")).getText();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Zoom Previous\" button of the bottom panel.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_Previous)).click();
+	  Thread.sleep(2000);
+	  String a2 = driver.findElement(By.xpath("//div[@class=\"olControlScaleLineTop\"]")).getText();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> Map should resets on previous zoom level.");
+	  Assert.assertNotEquals(a1, a2);
+  }
+  
+  @Test(priority=170, description="To verify that user is able to perform \"Zoom Next\" functionality from bottom panel.")
+  public void SGL_Ranchi_CITYGIS_170() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on the \"Fixed Zoom In\" (\"+\") button from the bottom panel.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_In)).click();
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_In)).click();
+	  Thread.sleep(4000);
+	  String a1 = driver.findElement(By.xpath("//div[@class=\"olControlScaleLineTop\"]")).getText();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on \"Zoom Previous\" button of the bottom panel.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_Previous)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on \"Zoom Next\" button of the bottom panel.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_Next)).click();
+	  Thread.sleep(2000);
+	  String a2 = driver.findElement(By.xpath("//div[@class=\"olControlScaleLineTop\"]")).getText();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> Map should resets on next zoom level.");
+	  Assert.assertEquals(a1, a2);
+  }
+  
+  @Test(priority=171, description="To verify that user is able to perform \"Fixed Zoom In\" functionality from bottom panel.")
+  public void SGL_Ranchi_CITYGIS_171() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  String a2 = driver.findElement(By.xpath("//div[@class=\"olControlScaleLineTop\"]")).getText();
+	  System.out.print(a2);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on the \"Fixed Zoom In\" (\"+\") button from the bottom panel.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_In)).click();
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_In)).click();
+	  Thread.sleep(4000);
+	  String a1 =driver.findElement(By.xpath("//div[@class=\"olControlScaleLineTop\"]")).getText();
+	  System.out.print(a1);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get next zoom-in level of map.");
+	  Assert.assertNotEquals(a1, a2);
+  }
+  
+  @Test(priority=172, description="To verify that user is able to perform \"Fixed Zoom Out\" functionality from bottom panel.")
+  public void SGL_Ranchi_CITYGIS_172() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on the \"Fixed Zoom In\" (\"+\") button from the bottom panel.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_In)).click();
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_In)).click();
+	  Thread.sleep(4000);
+	  String a2 = driver.findElement(By.xpath("//div[@class=\"olControlScaleLineTop\"]")).getText();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on the \"Fixed Zoom Out\" (\"-\") button from the bottom panel.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_out)).click();
+	  String a1 =driver.findElement(By.xpath("//div[@class=\"olControlScaleLineTop\"]")).getText();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get previous zoom-out level of map.");
+	  Assert.assertNotEquals(a1, a2);
+  }
+  
+  @Test(priority=173, description="To verify that user is able to perform \"Clear selection\" functionality from bottom panel.")
+  public void SGL_Ranchi_CITYGIS_173() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Select particular layer from the sub-layer list.");
+	  driver.findElement(By.xpath("//div/li[1]/div/input")).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on the \"Clear selection\" button from the bottom panel.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Clear_selection)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> Only default layer(s) should be display on map.");
+	  Assert.assertEquals(false, driver.findElement(By.xpath("//div/li[1]/div/input")).isSelected());  
+	  
+  }
+  
+  @Test(priority=174, description="To verify that user is able to perform \"Current Location\" functionality from bottom panel.")
+  public void SGL_Ranchi_CITYGIS_174() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on the \"Current Location\" button from the bottom panel.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Current_Location)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get pin-point on map of current user location."); 
+	  
+  }
+  
+  @Test(priority=176, description="To verify that user is able to get current \"Ward Number\" at bottom bar of page.")
+  public void SGL_Ranchi_CITYGIS_176() throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Move mouse hover in \"Ranchi\" city map.");
+	  Robot robot = new Robot();
+	  robot.mouseMove(853,600);
+	  robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the current \"Ward Number\" at bottom bar of the page."); 
+	  System.out.println(driver.findElement(By.xpath("//div[@id=\"statusbarmapinfo\"]")).getText());
+	  Assert.assertEquals("[Ward Number: 39", driver.findElement(By.xpath("//div[@id=\"statusbarmapinfo\"]")).getText());
+  }
+  
+  @Test(priority=177, description="To verify that user is able to get current \"Longitude/Latitude\" value at bottom bar of page.")
+  public void SGL_Ranchi_CITYGIS_177() throws InterruptedException, AWTException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Move mouse hover in \"Ranchi\" city map.");
+	  Robot robot = new Robot();
+	  robot.mouseMove(853,600);
+	  robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the current \"Longitude/Latitude\" value at bottom bar of page."); 
+	  System.out.println(driver.findElement(By.xpath("//div[@id=\"x-coord\"]")).getText());
+	  Assert.assertEquals("X: 85.26", driver.findElement(By.xpath("//div[@id=\"x-coord\"]")).getText());
+	  System.out.println(driver.findElement(By.xpath("//div[@id=\"y-coord\"]")).getText());
+	  Assert.assertEquals("Y: 23.32", driver.findElement(By.xpath("//div[@id=\"y-coord\"]")).getText());
+  }
+  
+  @Test(priority=178, description="To verify that user is able to get \"Current Version\" information of the application at bottom bar of page.")
+  public void SGL_Ranchi_CITYGIS_178() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> 1) User should redirect on \"CITY GIS\" Page.\r\n"
+	  		+ "2) Observe the bottom bar it should display the current version information."); 
+	  System.out.println(driver.findElement(By.xpath("//div[@id=\"appversion\"]")).getText());
+	  Assert.assertEquals("[DEV | v1.1.1]", driver.findElement(By.xpath("//div[@id=\"appversion\"]")).getText());
+  }
+  
+  @Test(priority=179, description="To verify that user is able to get the scale on the \"CITY GIS\" map.")
+  public void SGL_Ranchi_CITYGIS_179() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on the \"Fixed Zoom In\" button from the bottom panel.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Zoom_In)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get changed scale of map in bottom side."); 
+	  System.out.println(driver.findElement(By.xpath("//div[@class=\"olControlScaleLineTop\"]")).getText());
+	  Assert.assertEquals("2 km", driver.findElement(By.xpath("//div[@class=\"olControlScaleLineTop\"]")).getText());
+  }
+  
+  @Test(priority=180, description="To verify that user is able to perform collapse/expand functionality for \"Display Tools Windows\".")
+  public void SGL_Ranchi_CITYGIS_180(Method method) throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"CITY GIS\" button from home page.");
+	  driver.findElement(By.xpath(Home_Page_R.btn_City_GIS)).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Click on collapse(\">\")/expand(\"<\") button.");
+	  driver.findElement(By.xpath("//div/div[@class=\"btn-collapse\"]/a")).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> \"Display Tools Windows\" should collapse/expand as per selection.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//div[@class=\"list-inline nav-top modalinactive close-dialog-top\"]")).isDisplayed());
+	  objs.Screenshot(driver, Classname ,method.getName()+"_"+1 );
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on collapse(\">\")/expand(\"<\") button.");
+	  driver.findElement(By.xpath("//div/div[@class=\"btn-collapse\"]/a")).click();
+	  Thread.sleep(4000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> \"Display Tools Windows\" should collapse/expand as per selection.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//div[@class=\"list-inline nav-top modalactive expand-bottom\"]")).isDisplayed());
+  }
+  
+  @Test(priority=181, description="To verify that user is able to change language of register \"Citizen\" User.")
+  public void SGL_Ranchi_CITYGIS_181(Method method) throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"SIGN IN\" link from the home page of the Ranchi application.");
+	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid credentials of register \"Citizen\" user.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Login_Name)).sendKeys("deptuser");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Password)).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Sign In button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Sign_In)).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on Profile icon button from the City GIS page.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_User_Profile)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on link of 'Hindi' language option from the list.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Hindi_Lan)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get City GIS page in Hindi language.");
+	  Assert.assertEquals("रांची जीआईएस पोर्टल", driver.getTitle());
+	  objs.Screenshot(driver, Classname ,method.getName()+"_01" );
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Click on Profile icon button from the City GIS page.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_User_Profile)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Click on link of 'English' language option from the list.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_English_Lan)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get City GIS page in Hindi language.");
+	  Assert.assertEquals("Ranchi GIS Portal", driver.getTitle());
+  }
+  
+  @Test(priority=182, description="To verify that user gets \"Change Password\" dialog.")
+  public void SGL_Ranchi_CITYGIS_182() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"SIGN IN\" link from the home page of the Ranchi application.");
+	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid credentials of register \"Citizen\" user.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Login_Name)).sendKeys("deptuser");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Password)).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Sign In button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Sign_In)).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on Profile icon button from the City GIS page.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_User_Profile)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on \"Change Password\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Change_Password)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the dialog of \"Change Password\" functionality.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span[text()=\"Change Password\"]")).isDisplayed());
+  }
+  
+  @Test(priority=183, description="To verify that user is able to perform collapse/expand functionalities of \"Change Password\" dialog.")
+  public void SGL_Ranchi_CITYGIS_183(Method method) throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"SIGN IN\" link from the home page of the Ranchi application.");
+	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid credentials of register \"Citizen\" user.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Login_Name)).sendKeys("deptuser");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Password)).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Sign In button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Sign_In)).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on Profile icon button from the City GIS page.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_User_Profile)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on \"Change Password\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Change_Password)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Click on expand/collapse button.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_collapse_Ward_Inf)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> \"Change Password\" dialog should collapse/expand as per selection.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath(City_GIS_R.btn_expand_Ward_Inf)).isDisplayed());
+	  objs.Screenshot(driver, Classname ,method.getName()+"_"+1 );
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Click on expand/collapse button.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_expand_Ward_Inf)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> \"Change Password\" dialog should collapse/expand as per selection.");
+	  Assert.assertEquals(true, driver.findElement(By.xpath(City_GIS_R.btn_collapse_Ward_Inf)).isDisplayed()); 
+  }
+  
+  @Test(priority=184, description="To verify that user is able to perform close \"Change Password\" functionality of dialog.")
+  public void SGL_Ranchi_CITYGIS_184() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"SIGN IN\" link from the home page of the Ranchi application.");
+	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid credentials of register \"Citizen\" user.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Login_Name)).sendKeys("deptuser");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Password)).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Sign In button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Sign_In)).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on Profile icon button from the City GIS page.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_User_Profile)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on \"Change Password\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Change_Password)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Click on \"Close\" button.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Close_Ward_Inf)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> \"Change Password\" dialog should close.");
+	  Assert.assertEquals(false, driver.findElement(By.xpath("//span[text()=\"Change Password\"]")).isDisplayed());
+  }
+  
+  @Test(priority=185, description="To verify that user is able to perform \"Change Password\" functionality.")
+  public void SGL_Ranchi_CITYGIS_185() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"SIGN IN\" link from the home page of the Ranchi application.");
+	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid credentials of register \"Citizen\" user.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Login_Name)).sendKeys("deptuser");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Password)).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Sign In button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Sign_In)).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on Profile icon button from the City GIS page.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_User_Profile)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on \"Change Password\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Change_Password)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Enter old password into \"Old Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtuseroldpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Enter new password into \"New Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtusernewpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10:</b> Enter confirm password into \"Confirm Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtusercnfpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11:</b> Click on \"Update\" button.");
+	  driver.findElement(By.xpath("//button[@onclick=\"UpdateUserPassword();\"]")).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the success message as \r\n"
+	  		+ "\"Password changed successfully.\"");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//p[text()=\"Password changed successfully.\"]")).isDisplayed());
+  }
+  
+  @Test(priority=186, description="To verify that user is able to perform \"Clear\" functionality.")
+  public void SGL_Ranchi_CITYGIS_186() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"SIGN IN\" link from the home page of the Ranchi application.");
+	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid credentials of register \"Citizen\" user.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Login_Name)).sendKeys("deptuser");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Password)).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Sign In button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Sign_In)).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on Profile icon button from the City GIS page.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_User_Profile)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on \"Change Password\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Change_Password)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Enter old password into \"Old Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtuseroldpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Enter new password into \"New Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtusernewpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10:</b> Enter confirm password into \"Confirm Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtusercnfpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11:</b> Click on \"Clear\" button.");
+	  driver.findElement(By.xpath("//button[@onclick=\"ChnagePasswordTextClear();\"]")).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> Entered passwords from the textboxes should be clear.");
+	  Assert.assertEquals("", driver.findElement(By.xpath("//input[@id=\"txtusercnfpwd\"]")).getText());
+	  Assert.assertEquals("", driver.findElement(By.xpath("//input[@id=\"txtusernewpwd\"]")).getText());
+	  Assert.assertEquals("", driver.findElement(By.xpath("//input[@id=\"txtuseroldpwd\"]")).getText());
+  }
+  
+  @Test(priority=187, description="To verify that user can not able to perform \"Change Password\" functionality without entering any password.")
+  public void SGL_Ranchi_CITYGIS_187() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"SIGN IN\" link from the home page of the Ranchi application.");
+	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid credentials of register \"Citizen\" user.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Login_Name)).sendKeys("deptuser");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Password)).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Sign In button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Sign_In)).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on Profile icon button from the City GIS page.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_User_Profile)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on \"Change Password\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Change_Password)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Click on \"Update\" button.");
+	  driver.findElement(By.xpath("//button[@onclick=\"UpdateUserPassword();\"]")).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the suggesstion message as,\r\n"
+	  		+ "\"Please enter Old Password\"\r\n"
+	  		+ "\"Please enter New Password\"\r\n"
+	  		+ "\"Retype the Password again\" ");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span1[text()=\"Please enter Old Password\"]")).isDisplayed());
+  }
+  
+  @Test(priority=188, description="To verify that user can not able to perform \"Change Password\" functionality with entering invalid new password.")
+  public void SGL_Ranchi_CITYGIS_188() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"SIGN IN\" link from the home page of the Ranchi application.");
+	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid credentials of register \"Citizen\" user.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Login_Name)).sendKeys("deptuser");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Password)).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Sign In button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Sign_In)).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on Profile icon button from the City GIS page.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_User_Profile)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on \"Change Password\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Change_Password)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Enter old password into \"Old Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtuseroldpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Enter invalid new password into \"New Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtusernewpwd\"]")).sendKeys("Ab234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10:</b> Enter confirm password into \"Confirm Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtusercnfpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11:</b> Click on \"Update\" button.");
+	  driver.findElement(By.xpath("//button[@onclick=\"UpdateUserPassword();\"]")).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the suggesstion message as,\r\n"
+	  		+ "\"Password must contain 1 small-case letter, 1 Capital letter, 1 digit, 1 special character and the length should be between 6-12 characters.\"\r\n"
+	  		+ "\" Retype the Password again \"");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//p[text()=\"Password must contain 1 small-case letter, 1 Capital letter, 1 digit, 1 special character and the length should be between 6-12 characters.\"]")).isDisplayed());
+  }
+  
+  @Test(priority=189, description="To verify that user can not able to perform \"Change Password\" functionality with entering invalid confirm password.")
+  public void SGL_Ranchi_CITYGIS_189() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"SIGN IN\" link from the home page of the Ranchi application.");
+	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid credentials of register \"Citizen\" user.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Login_Name)).sendKeys("deptuser");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Password)).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Sign In button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Sign_In)).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on Profile icon button from the City GIS page.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_User_Profile)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on \"Change Password\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Change_Password)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Enter old password into \"Old Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtuseroldpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Enter new password into \"New Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtusernewpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10:</b> Enter invalid confirm password into \"Confirm Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtusercnfpwd\"]")).sendKeys("Abc234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11:</b> Click on \"Update\" button.");
+	  driver.findElement(By.xpath("//button[@onclick=\"UpdateUserPassword();\"]")).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the suggesstion message as,\r\n"
+	  		+ "\" Confirm Password does not match\"");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//span1[text()=\"Confirm Password does not match\"]")).isDisplayed());
+  }
+  
+  @Test(priority=190, description="To verify that user can not able to perform \"Change Password\" functionality with entering same password in \"Old Password\" textbox\" ,\"New Password\" textbox and \"Confirm Password\" texbox.")
+  public void SGL_Ranchi_CITYGIS_190() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"SIGN IN\" link from the home page of the Ranchi application.");
+	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid credentials of register \"Citizen\" user.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Login_Name)).sendKeys("deptuser");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Password)).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Sign In button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Sign_In)).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on Profile icon button from the City GIS page.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_User_Profile)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on \"Change Password\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Change_Password)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Enter old password into \"Old Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtuseroldpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Enter same new password into \"New Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtusernewpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10:</b> Enter same confirm password into \"Confirm Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtusercnfpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11:</b> Click on \"Update\" button.");
+	  driver.findElement(By.xpath("//button[@onclick=\"UpdateUserPassword();\"]")).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the suggesstion message as, \"New Password can not same as previous password\"");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//p[text()=\"New Password can not same as previous password\"]")).isDisplayed());
+  }
+  
+  @Test(priority=191, description="To verify that user can not able to perform \"Change Password\" functionality with entering invalid old password.")
+  public void SGL_Ranchi_CITYGIS_191() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"SIGN IN\" link from the home page of the Ranchi application.");
+	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid credentials of register \"Citizen\" user.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Login_Name)).sendKeys("deptuser");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Password)).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Sign In button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Sign_In)).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on Profile icon button from the City GIS page.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_User_Profile)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on \"Change Password\" functionality.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_Change_Password)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-8:</b> Enter invalid old password into \"Old Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtuseroldpwd\"]")).sendKeys("Abc@122234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-9:</b> Enter new password into \"New Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtusernewpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-10:</b> Enter confirm password into \"Confirm Password\" textbox.");
+	  driver.findElement(By.xpath("//input[@id=\"txtusercnfpwd\"]")).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-11:</b> Click on \"Update\" button.");
+	  driver.findElement(By.xpath("//button[@onclick=\"UpdateUserPassword();\"]")).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get the suggesstion message as,\r\n"
+	  		+ "\"Old Password not matched.\"");
+	  Assert.assertEquals(true, driver.findElement(By.xpath("//p[text()=\"Old Password not matched.\"]")).isDisplayed());
+  }
+  
+  @Test(priority=192, description="To verify that user is able to perform \"Logout\" functionality.")
+  public void SGL_Ranchi_CITYGIS_192() throws InterruptedException {
+      ExtentTestManager.getTest().log(Status.INFO, "<b>Step-1:</b> Open browser.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-2:</b> Enter URL of the Ranchi application in address bar.");
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-3:</b> Click on \"SIGN IN\" link from the home page of the Ranchi application.");
+	  driver.findElement(By.xpath(Home_Page_R.lnk_Sign_In)).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-4:</b> Enter valid credentials of register \"Citizen\" user.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Login_Name)).sendKeys("deptuser");
+	  driver.findElement(By.xpath(Sign_In_Page_R.txt_Password)).sendKeys("Abc@1234");
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-5:</b> Click on Sign In button.");
+	  driver.findElement(By.xpath(Sign_In_Page_R.btn_Sign_In)).click();
+	  Thread.sleep(5000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-6:</b> Click on Profile icon button from the City GIS page.");
+	  driver.findElement(By.xpath(City_GIS_R.btn_User_Profile)).click();
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Step-7:</b> Click on \"Logout\" functionality.");
+	  driver.findElement(By.xpath("//i[@class=\"fa fa-power-off text-sm\"]")).click();
+	  Thread.sleep(2000);
+	  ExtentTestManager.getTest().log(Status.INFO, "<b>Result:</b> User should get \"Home\" page of the \"Ranchi\" application.");
+	  String actualTitle=driver.getTitle();
+	  String expectedTitle="Ranchi Smart City Portal";
+	  Assert.assertEquals(actualTitle, expectedTitle);
+  }
   @AfterMethod
   public void afterClass() {
 	driver.quit();

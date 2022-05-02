@@ -3,13 +3,13 @@
 <suite parallel="none" name="Failed suite [Default suite]">
   <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="City_GIS_Map.City_GIS">
+      <class name="Admin.User_Management">
         <methods>
           <include name="openBrowser"/>
           <include name="afterClass"/>
-          <include name="SGL_Ranchi_CITYGIS_149"/>
+          <include name="SGL_Ranchi_Admin_Language_123"/>
         </methods>
-      </class> <!-- City_GIS_Map.City_GIS -->
+      </class> <!-- Admin.User_Management -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

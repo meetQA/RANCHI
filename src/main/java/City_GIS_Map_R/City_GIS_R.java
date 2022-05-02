@@ -9,6 +9,8 @@ public class City_GIS_R {
 	public static String btn_User_Profile = "//a[@id=\"UserProfile\"]";
 	public static String btn_Hindi_Lan = "//button[text()=\"हिंदी\"]";
 	public static String btn_English_Lan = "//button[text()=\"English\"]";
+	
+	public static String btn_Change_Password = "//button[text()=\"Change Password\"]";
 	public static String btn_Layers = "//a[@title=\"Layers\"]";
 	public static String Layer_Panel = "//aside[@data-intro=\"<strong>Layer Panel</strong>\"]";
 	public static String txt_Search_Layer = "//input[@placeholder=\"Search Layer...\"]";
@@ -116,8 +118,13 @@ public class City_GIS_R {
     public static final String ddm_Find_Direction ="//a[text()=\"Find Direction\"]";
     public static final String txt_Source_Location ="//input[@id=\"search_input_from\"]";
     public static final String txt_Destination_Location ="//input[@id=\"search_input_to\"]";
-    public static final String btn_Direction ="//button[@id=\"networkGo\"]";
-    public static final String btn_Clear_FD ="//button[@id=\"networkClear\"]";
+    public static final String btn_Direction ="//button[@id=\"networkGo\" and @onclick=\"GONetworkAnalysis();\"]";
+    public static final String btn_Clear_FD ="//button[@id=\"networkClear\" and @onclick=\"TextClear();\"]";
+    public static final String btn_Current_Location_FD ="//button[@id=\"GPS\"]";
+    public static final String ddm_Send_Map_Through_Email="//a[text()=\"Send Map Through Email\"]";
+    public static final String ddm_Statistical_Information="//a[text()=\"Statistical Information\"]";
+    
+    
     
     
     public static final String btn_Analytics = "//a[@title=\"Analytics\"]";

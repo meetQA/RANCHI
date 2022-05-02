@@ -5,17 +5,17 @@
   <test thread-count="5" name="Test">
     <classes>
  
-     
+     <class name="Admin.User_Management" />
      <!-- <class name="Application_Pages.Home_Page"/> 
     
       <class name="Application_Pages.Sign_In_Page"/>
       <class name="Application_Pages.Sign_Up_Page"/>
       <class name="Application_Pages.Forgot_Password_Page"/>  -->
-   <class name="City_GIS_Map.City_GIS">
+  <!--  <class name="City_GIS_Map.City_GIS"> -->
    <!-- <methods>
    <include name= "SGL_Ranchi_CITYGIS_148()" /> 
    </methods> -->
-   </class>
+   <!-- </class> -->
    
     </classes>
   </test> <!-- Test -->

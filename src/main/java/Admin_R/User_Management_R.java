@@ -1,6 +1,11 @@
 package Admin_R;
 
 public class User_Management_R {
+	public static final String ddm_Language = "//div/span[text()=\"Language\"]";
+	public static final String ddm_Language_H = "//div/span[text()=\"भाषा\"]";
+	public static final String btn_Hindi = "//a[text()=\"हिंदी\"]";
+	public static final String btn_English = "//a[text()=\"English\"]";
+	public static final String btn_Help = "//div/span[text()=\"Help\"]";
 	public static final String ddm_User_managment = "//div/span[text()=\"User Management\"]";
 	public static final String btn_Manage_User = "//a[text()=\"Manage Users\"]";
 	public static final String btn_Manage_Roles = "//a[text()=\"Manage Roles\"]";
@@ -17,9 +22,9 @@ public class User_Management_R {
 	public static final String btn_Register = "//button[text()=\"Register\"]";
 	public static final String btn_Cancel = "//a[text()=\"Cancel\"]";
 	public static final String btn_Update = "//button[text()=\"Update\"]";
-	public static final String Success_Message = "//p[text()=\"User has been register successfully and Password sent through e-mail.\"]";
+	public static final String Success_Message = "//p[text()=\"User Added Successfully and Password sent through e-mail.\"]";
 	public static final String btn_Edit_User = "//tr[1]/td/a[@data-original-title=\"Edit\"]";
-	public static final String Success_Message_Update = "//p[text()=\"User Update Successfully\"]";
+	public static final String Success_Message_Update = "//p[text()=\"User Details Update successfully.\"]";
 	public static final String btn_Delete_User = "//tr[1]/td[4]/a";
 	public static final String btn_Yes_User_Delete = "//button[text()=\"Yes\"]";
 	public static final String btn_Active_User = "//tr[1]/td[5]/input";
@@ -37,10 +42,13 @@ public class User_Management_R {
 	public static final String chk_Select_All= "//input[@id=\"chkall\"]";
 	public static final String btn_Next = "//a[text()=\"Next\"]";
 	public static final String btn_Previous = "//a[text()=\"Previous\"]";
+	public static final String lnk_Dashboard = "//a[text()=\"Dashboard\"]";
+	public static final String lnk_Manage_User = "//ol[@class=\"breadcrumb\"]//a[text()=\"Manage Users\"]";
+	public static final String lnk_Manage_Roles = "//ol[@class=\"breadcrumb\"]//a[text()=\"Manage Roles\"]";
 	public static final String Validation_Message_First_Name = "//span[text()=\"Please Enter First Name\"]";
 	public static final String Validation_Message_last_Name = "//span[text()=\"Please Enter Last Name\"]";
-	public static final String Validation_Message_User_Name = "//span[text()=\"Please Enter Valid Username\"]";
-	public static final String Validation_Message_Mobile_No = "//span[text()=\"Please enter mobile number\"]";
+	public static final String Validation_Message_User_Name = "//span[text()=\"Please Enter Username\"]";
+	public static final String Validation_Message_Mobile_No = "//span[text()=\"Please Enter Mobile No.\"]";
 	public static final String Validation_Message_Email = "//span[text()=\"Please Enter Email Address\"]";
 	public static final String Validation_Select_User = "//p[text()=\"Please Select Users\"]";
 	public static final String label_Manage_Roles = "//h6[text()=\"Manage Roles\"]";
@@ -49,30 +57,51 @@ public class User_Management_R {
 	public static final String txt_Role_Code = "//input[@name=\"Code\"]";
 	public static final String txt_Description  = "//textarea[@name=\"Description\"]";
 	public static final String btn_Save = "//button[text()=\"Save\"]";
-	public static final String Success_Message_Role = "//p[text()=\"New Role defined successfully.\"]";
+	public static final String Success_Message_Role = "//p[text()=\"Role inserted successfully.\"]";
 	public static final String Success_Message_Update_Role = "//p[text()=\"Role updated successfully.\"]";
 	public static final String Validation_Message_Role_Name = "//span[text()=\"Please enter Role Name\"]";
-	public static final String Validation_Message_Role_Code = "//span[text()=\"Please enter Role Code\"]";
+	public static final String Validation_Message_Role_Code = "//span[text()=\"Please Enter Role Code\"]";
 	public static final String Validation_Select_Role = "//p[text()=\"Please Select Role\"]";
 	public static final String label_Assign_Role_Per = "//h5[text()=\"Role Permission\"]";
 	public static final String btn_Module_Rights = "//a[text()=\"Module Rights\"]";
-	public static final String chk_Dep_User = "//ul/li[3]/div[@style=\"overflow: visible; position: absolute; width: 13px; height: 13px; cursor: pointer; margin-top: 4px; margin-left: 16px;\"]/div/div";
+	public static final String chk_Dep_User = "//div/ul[@style=\"width: 251.375px; min-width: 1523px;\"]/li[1]/div/div/div";
 	public static final String Success_Message_MR = "//p[text()=\"Module Rights and Predefinded Query Rights assign sucsessfully.\"]";
-	public static final String chk_Dep_All = "//div[@class=\"tab-pane active\"]/ul/li/a[text()=\"Check All\"]";
-	public static final String chk_Uncheck_Dep_All = "//div[@class=\"tab-pane active\"]/ul/li/a[text()=\"Uncheck All\"]";
+	public static final String chk_Dep_All = "//div[@class=\"tab-pane fade active show\"]/ul/li/a[text()=\"Check All\"]";
+	public static final String chk_Uncheck_Dep_All = "//div[@class=\"tab-pane fade active show\"]/ul/li/a[text()=\"Uncheck All\"]";
 	public static final String Validation_Message_MR = "//p[text()=\"please select at least one checkbox\"]";
-	public static final String btn_invert = "//div[@class=\"tab-pane active\"]/ul/li/a[text()=\"Invert\"]";
-	public static final String btn_expand = "//ul/li[3]/span[@style=\"height: 17px; border: none; background-color: transparent; float: left; clear: both; width: 16px; margin-top: 4px;\"]";
+	public static final String btn_invert = "//div[@class=\"tab-pane fade active show\"]/ul/li/a[text()=\"Invert\"]";
+	public static final String btn_expand = "//ul/li[1]/span[@style=\"height: 17px; border: none; background-color: transparent; float: left; clear: both; width: 16px; margin-top: 4px;\"]";
 	public static final String btn_Predefined_Query_Rights = "//a[text()=\"Predefined Query Rights\"]";
 	public static final String chk_Pre_Query = "//div/ul/li[1]/div[@style=\"overflow: visible; position: absolute; width: 13px; height: 13px; cursor: pointer; margin-top: -4.5px; margin-left: 0px;\"]/div/div";
 	public static final String Validation_Message_SR = "//p[text()=\"please select role\"]";
-	public static final String btn_Add_Group = "//div/span[text()=\"Add Group\"]";
+	public static final String btn_Add_Group = "//a[text()=\"Add Groups\"]";
 	public static final String txt_Add_Group = "//input[@placeholder=\"Enter Group Name here\"]";
 	public static final String btn_Add_group = "//button[@id=\"btnAddGroup\"]";
 	public static final String Success_Message_AG = "//p[text()=\"Group Added successfully.\"]";
 	public static final String Success_Message_AG_edit = "//p[text()=\"Group Name Already Exist\"]";
 	public static final String btn_Delete_group = "//i[@id=\"delbtn_Testing\"]";
-	public static final String btn_Role_Group_Mapping = "//span[text()=\"Role Group Mapping\"]";
+	public static final String btn_Role_Group_Mapping = "//a[text()=\"Role Group Mapping\"]";
 	public static final String label_Role_GM = "//h5[text()=\"Role Group Mapping\"]";
 	public static final String chk_Group_Water_Supply = "//input[@id=\"chkGroup_Water_Supply\"]";
+	
+	public static final String btn_Layer_Management = "//a[text()=\"Layer Management\"]";
+	public static final String btn_Add_Layer = "//button[text()=\"Add Layer\"]";
+	public static final String txt_Layer_Name= "//input[@name=\"LayerName\"]";
+	public static final String txt_Alias_Name= "//input[@name=\"AliasName\"]";
+	public static final String lnk_Layer_Management= "//ol[@class=\"breadcrumb\"]//a[text()=\"Layer Management\"]";
+	
+	public static final String btn_Event_Log = "//span[text()=\"Event Logs\"]";
+	public static final String ddm_Reports = "//span[text()=\"Reports\"]";
+	public static final String btn_Water_Pipeline = "//a[text()=\"Water Pipeline\"]";
+	public static final String btn_School_Detail = "//a[text()=\"School Detail\"]"; 	
+	public static final String btn_Features_Audit_Report = "//a[text()=\"Features Audit Report\"]"; 	
+	public static final String btn_Generate_Report = "//button[text()=\"Generate Report\"]";
+	
+	public static final String btn_User_Profile = "//img[@alt=\"user_auth\"]";
+	public static final String btn_Profile = "//span[text()=\"User Profile\"]";
+	public static final String btn_Edit_Profile = "//span[text()=\"Edit Profile\"]";
+	public static final String btn_Logout = "//span[text()=\"Logout\"]";
+	
+	public static final String btn_Administrator = "//span[text()=\"Administrator\"]";
+	
 }
